@@ -47,7 +47,7 @@ void algorithm3(const int *arr, const int length) {
 
     int i = 0;
 
-    while (k2 <= arr[length - 1] && i < length) {
+    while (i < length) {
         if (k2 == arr[i])
             ++i;
         else {
@@ -82,6 +82,7 @@ void algorithm4(const int arr[], const int &length) {
     for (int i = 0; i < length; ++i) {
         float sqrt = 1 / Q_rsqrt(static_cast<float>(arr[i]));
         int sqrt_i = (int) sqrt;
+
         if (arr[i] / sqrt_i != sqrt_i) {
             std::cout << arr[i] << '\t';
         }
@@ -132,7 +133,7 @@ int main() {
              * Таким образом в случае некорректного ввода пользователя (в воде содержится буква), мы игнорируем кол-во символов в буффере, равное длине данного буффера, пока не встретится специальный символ \n. После него мы опять считываем значения.
              * */
 
-            std::cout << "Bad entry. Choose algorithm (1, 2, 3 or 4): ";
+            std::cout << "Bad entry. Choose algorithm (1, 2, 3 or 4, 0 - exit): ";
             std::cin >> choice;
         }
 
@@ -141,6 +142,7 @@ int main() {
             case 0:
                 isFinished = true;
                 break;
+
             case 1:
                 // работает как с упорядоченным, так и не с упорядоченным массивом
                 algorithm1(arrOrdered, lengthOrdered);
